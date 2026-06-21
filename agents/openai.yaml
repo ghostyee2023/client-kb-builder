@@ -1,4 +1,4 @@
 interface:
   display_name: "客户知识库构建"
-  short_description: "按 OPC 五维架构为客户设计可运行的知识库系统。"
+  short_description: "按五维诊断为客户设计可运行的知识库操作系统。"
   default_prompt: "帮我为一个客户从业务诊断开始，设计一套可运行的客户版知识库系统。"
