@@ -114,6 +114,17 @@ Every customer root that expects AI assistance should include:
 
 Root execution rules must define read scope, write scope, high-risk boundaries, human confirmation points, and failure fallback.
 
+## Capability Layer Templates
+
+When generating the `11_Capabilities_And_Agents/` directory for a customer, use these templates as starting content. Fill the `{{PLACEHOLDER}}` sections based on the customer's industry and enabled workflows.
+
+- `Capability_Switchboard.md`: use `assets/Capability_Switchboard.template.md`. Fill `{{CAPABILITIES}}` with capabilities mapped to each workflow node.
+- `System_Skill_Candidates.md`: use `assets/System_Skill_Candidates.template.md`. Fill `{{INDUSTRY_SKILLS}}` based on customer industry type (content IP / consulting / training / internal team).
+- `Project_Skill_Registry.md`: use `assets/Project_Skill_Registry.template.md`. Fill `{{PROJECT_SKILLS}}` with planned project-level skills for each workflow node.
+- `Skill_Install_And_Enablement.md`: use `assets/Skill_Install_And_Enablement.template.md`. Fill `{{AI_TOOL}}` and `{{MINIMAL_SKILLS}}` based on customer environment.
+
+These four files are not optional. A customer knowledge base without them is a directory without an engine. They tell the customer what capabilities are available, what is missing, how to install, and how to verify.
+
 ## Skill Layering
 
 Use two skill layers:

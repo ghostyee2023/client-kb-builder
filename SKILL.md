@@ -1,11 +1,11 @@
 ---
-name: client-kb-builder
+name: kb-foundry
 description: Build customer-facing knowledge-base operating systems from business diagnosis to directory architecture, workflow packages, capability switches, delivery materials, and iteration plans. This is not a generic wiki builder; use it when a user asks to create, design, configure, productize, or deliver a client/customer knowledge-base operating system, client workflow architecture, capability configuration, AI execution layer, or knowledge-base delivery package.
 ---
 
-# Client KB Builder
+# KB Foundry
 
-Version: v1.0-beta.1
+Version: v1.0-beta.2
 
 ## Core Rule
 
@@ -21,6 +21,7 @@ Five-dimensional diagnosis
 -> workflow packages
 -> capability switches
 -> directory placement
+-> first workflow walkthrough
 -> delivery and training
 -> review and iteration
 ```
@@ -32,6 +33,10 @@ Before designing a full system, choose the delivery scale:
 - Lite: one or two core workflows, a small directory, no heavy capability registry unless needed.
 - Standard: workflow switchboard, capability switchboard, templates, and AI execution rules.
 - Full delivery: complete directory architecture, workflow packages, capability switches, project skill plan, training materials, and validation records.
+
+## First-Time Users
+
+When a user is trying the skill for the first time or gives a vague request without customer context, use `references/onboarding-guide.md` to run an interactive question flow. Ask one question at a time. Do not dump the full workflow on a new user. Adapt based on answers and stop early if the user only wants to explore.
 
 ## Workflow
 
@@ -56,11 +61,14 @@ Before designing a full system, choose the delivery scale:
 7. Generate the customer directory.
    Use business-readable names. Keep top-level directories ordered by operating sequence. Use `assets/customer-kb-directory-template.md` as the starting scaffold, then rename for the customer's business. Include root AI execution files such as `AGENTS.md` and `CLAUDE.md` when the customer will use AI agents.
 
+7b. Walk through the first workflow.
+   After the directory and AI execution rules are in place, guide the user through running their first real workflow end-to-end. Use `references/first-workflow-walkthrough.md`. The goal is not to generate more files, but to make sure the user understands how an input moves through the system: inbox -> judgment -> processing -> output -> review -> sedimentation. If the user is completely new, also run `references/first-day-checklist.md` to cover the five essential first-day actions.
+
 8. Produce delivery materials.
    For paid or client-facing work, output a setup plan, customer explanation, training path, and next iteration list.
 
 9. Configure customer AI execution.
-   Add root rules, workflow switches, capability switches, system skill candidate list, project skill registry, skill installation plan, AI boundaries, and validation records. Customer AI must know what it can read, write, call, install, and when to stop for human confirmation.
+   Add root rules, workflow switches, capability switches, system skill candidate list, project skill registry, skill installation plan, AI boundaries, and validation records. Use the capability layer templates to generate initial content for the customer: `assets/Capability_Switchboard.template.md`, `assets/System_Skill_Candidates.template.md`, `assets/Project_Skill_Registry.template.md`, and `assets/Skill_Install_And_Enablement.template.md`. Fill placeholder sections based on the customer industry and enabled workflows. These four files are the engine of the knowledge base; a customer root without them is a directory without capabilities. Customer AI must know what it can read, write, call, install, and when to stop for human confirmation.
 
    Distinguish system-level skills from project-level skills:
    - System-level skills are reusable capabilities already available on the delivery machine. Give customers a curated install list so their AI can install or request installation.
@@ -100,7 +108,7 @@ Use a full delivery output when the user asks to build, land, save, scaffold, or
 
 This is a beta skill. Be explicit about validation state in customer-facing or contest-facing outputs:
 
-- Validated: methodology design, reference templates, internal structure, and simulated customer scenarios.
+- Validated: methodology design, reference templates, internal structure, simulated customer scenarios, first-workflow walkthrough, first-day onboarding, and capability layer templates (switchboard, system skill candidates, project skill registry, install guide).
 - Pending: real customer end-to-end delivery evidence across multiple industries.
 - Known risk: full delivery may feel heavy for small customers; use Lite or Standard scale first.
 - Known risk: platform or public API availability may vary after installation; provide fallback instructions and manual usage paths.
@@ -117,10 +125,30 @@ This is a beta skill. Be explicit about validation state in customer-facing or c
 - If a customer business does not need the full system, recommend a smaller version.
 - If installation, public API access, or runtime availability is uncertain, state the uncertainty and provide a manual fallback instead of claiming full automation.
 
+## Runtime Assets
+
+From v1.0-beta.2, the skill ships with usable runtime assets, not just design templates:
+
+- `assets/workbench-template.md`: copy into the customer root as the daily entry point. Rename and adapt quick commands to the customer business.
+- `assets/scripts/hybrid_search.py`: zero-dependency local search. Copy into the customer root and run `python hybrid_search.py "keyword" --root .`. Works for mixed Chinese and English content.
+- `examples/lawyer-firm/`: a complete end-to-end customer root sample. Use as a reference for what a finished delivery looks like.
+
+These assets let a customer start using the knowledge base on day one: search the vault, see what to do today, and learn from a real example.
+
 ## References
 
 - `references/five-dimensional-diagnosis.md`: use for customer diagnosis and business model translation.
 - `references/workflow-package-template.md`: use when designing formal customer workflow packages.
 - `references/capability-switch-template.md`: use when configuring skills, tools, agents, templates, and automations.
 - `references/acceptance-checklist.md`: use before handoff or after scaffolding a customer root.
+- `references/first-workflow-walkthrough.md`: use after directory generation to guide the user through running their first workflow end-to-end.
+- `references/first-day-checklist.md`: use when the user is ready to start using the knowledge base, covering the five essential first-day actions.
 - `assets/customer-kb-directory-template.md`: use as a scaffold for a customer knowledge-base directory.
+- `assets/Capability_Switchboard.template.md`: use as starting content for the customer capability switchboard. Fill `{{CAPABILITIES}}` per workflow node.
+- `assets/System_Skill_Candidates.template.md`: use as starting content for the customer system skill candidate list. Fill `{{INDUSTRY_SKILLS}}` per customer industry.
+- `assets/Project_Skill_Registry.template.md`: use as starting content for the customer project skill registry. Fill `{{PROJECT_SKILLS}}` per workflow node.
+- `assets/Skill_Install_And_Enablement.template.md`: use as starting content for the customer skill installation and enablement guide. Fill `{{AI_TOOL}}` and `{{MINIMAL_SKILLS}}` per customer environment.
+- `references/onboarding-guide.md`: use when a user is trying the skill for the first time or needs guided onboarding.
+- `assets/workbench-template.md`: use as the starting point for a customer daily workbench. Adapt the section names and quick commands to the customer business.
+- `assets/scripts/hybrid_search.py`: zero-dependency local search. Copy into the customer root and run python hybrid_search.py "keyword" --root .. Works for mixed Chinese and English content.
+- `examples/lawyer-firm/`: a complete end-to-end customer root sample. Use as a reference for what a finished delivery looks like, or as a starting point for similar professional-service customers.
