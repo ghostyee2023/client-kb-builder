@@ -165,51 +165,6 @@ kb-foundry 不是给你一套固定模板让你自己填。它像一个教练，
 
 ---
 
-## 仓库结构
-
-```text
-kb-foundry/
-  SKILL.md                              # skill 主入口
-  README.md                             # 本文件
-  LICENSE                               # MIT
-  agents/
-    openai.yaml                         # Codex 展示名称和默认提示词
-  assets/
-    customer-kb-directory-template.md   # 客户目录模板
-    workbench-template.md               # 工作台模板
-    Capability_Switchboard.template.md  # 能力开关表模板
-    System_Skill_Candidates.template.md # 系统级 skill 候选清单模板
-    Project_Skill_Registry.template.md  # 项目级 skill 清单模板
-    Skill_Install_And_Enablement.template.md  # 安装与启用说明模板
-    scripts/
-      hybrid_search.py                  # 零依赖本地搜索
-  references/
-    five-dimensional-diagnosis.md       # 业务诊断
-    workflow-package-template.md        # 业务流设计模板
-    capability-switch-template.md       # 能力配置模板
-    acceptance-checklist.md             # 验收清单
-    first-workflow-walkthrough.md       # 首条业务流走查指引
-    first-day-checklist.md              # 首日运行清单
-    onboarding-guide.md                 # 新用户引导
-  examples/
-    lawyer-firm/                        # 律师客户完整样例
-      AGENTS.md / CLAUDE.md             # AI 执行规则
-      00_律所工作台/                     # 工作台 + 路径注册
-      01_业务与专业上下文/               # 服务领域、收费、案由、风险红线
-      02_客户咨询收件箱/                 # 微信咨询、电话记录、客户材料
-      03_法律知识与案例资产/             # 法规摘要、案由方法、典型案例
-      04_案件判断与方案/                 # 冲突检查、风险初筛、代理方案
-      05_文书与工作底稿/                 # 合同、法律意见书、证据目录
-      06_案件交付/                       # 咨询项目、代理案件、进度同步
-      07_客户交付与归档/                 # 已发送材料、签署文件、结案归档
-      08_数据反馈/                       # 案件结果、客户反馈、转化数据
-      09_律师复盘/                       # 单案复盘、月度复盘、模板升级
-      10_治理规则/                       # 业务流开关、AI 执行规则、权限保密
-      11_能力与工具/                     # 能力开关、skill 清单、安装启用
-```
-
----
-
 ## 局限
 
 诚实地说：
@@ -231,29 +186,6 @@ kb-foundry/
 已验证：方法论设计、reference 模板、内部结构、模拟客户场景。
 
 待验证：多行业真实客户端到端交付、不同规模（Lite/Standard/Full）的用户接受度、不同平台的安装后可用性。
-
----
-
-## 作品信息
-
-```text
-作品名称：kb-foundry（知识铸造厂）
-作品类型：Codex / AI Agent 项目级 skill
-当前版本：v1.0-beta.2
-作者 / 维护者：ghostyee2023
-License：MIT License
-```
-
-
-## 原创性声明
-
-本作品由作者围绕客户版知识库产品化交付场景独立设计和整理。
-
-项目中的核心方法包括五维诊断、生命周期映射、业务流包、能力开关、客户目录生成、AI 执行边界和交付验收，来源于作者自有的知识库系统搭建实践和客户交付方法论沉淀。
-
-本作品在创作过程中参考了公开作品展示、README 写法和开源项目说明的通用表达方式，但核心方法、文档结构、业务流程、能力设计和交付逻辑均由作者独立整理完成。
-
-本作品未直接沿用他人作品名称，未复制第三方 skill、模板、代码或文档内容。若未来引入具体第三方内容、模板、代码或衍生设计，应在对应文件中明确标注来源、原作者署名、授权方式和 License。
 
 ## License 与二次创作
 
